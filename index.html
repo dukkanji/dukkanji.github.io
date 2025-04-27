@@ -45,45 +45,55 @@
       z-index: 0;
     }
     .welcome-content {
-      height: 40%;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: center;
-      color: white;
-      text-align: center;
-      padding: 30px;
-      gap: 20px;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      /* Creates the dotted border effect */
-      -webkit-mask: 
-        linear-gradient(to bottom, 
-          transparent 0%, 
-          black 10%,
-          black 90%, 
-          transparent 100%
-        ),
-        radial-gradient(circle at 50% 0%, black 1px, transparent 1px) 0 0 / 10px 10px;
-      mask: 
-        linear-gradient(to bottom, 
-          transparent 0%, 
-          black 10%,
-          black 90%, 
-          transparent 100%
-        ),
-        radial-gradient(circle at 50% 0%, black 1px, transparent 1px) 0 0 / 10px 10px;
-    }
+  height: 40%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 30px;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: rgba(248, 244, 238, 0.95);
+  border-top: 3px dotted #6b8e23;
+  border-bottom: 3px dotted #6b8e23;
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+  -webkit-mask: 
+    linear-gradient(to bottom, 
+      transparent 0%, 
+      black 10%,
+      black 90%, 
+      transparent 100%
+    ),
+    radial-gradient(circle at 50% 0%, black 1px, transparent 1px) 0 0 / 10px 10px;
+  mask: 
+    linear-gradient(to bottom, 
+      transparent 0%, 
+      black 10%,
+      black 90%, 
+      transparent 100%
+    ),
+    radial-gradient(circle at 50% 0%, black 1px, transparent 1px) 0 0 / 10px 10px;
+}
 
     .welcome-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: linear-gradient(
     to right,
-    #f8f4ee 0%,    /* Creamy white (light) */
-    #e0d8c8 50%,   /* Warm cream (medium) */
-    #908060 100%   /* Earthy olive (dark) */
+    rgba(248, 244, 238, 0.9) 0%,
+    rgba(224, 216, 200, 0.9) 50%,
+    rgba(107, 142, 35, 0.7) 100%
   );
+  z-index: -1;
   mask-image: linear-gradient(
     to top,
     rgba(0,0,0,0.1) 0%,
@@ -144,23 +154,23 @@
       z-index: 1;
     }
     .welcome-title span {
-      position: relative;
-      top: 20px;
-      color: white;
-      display: inline-block;
-      font-size: 3.5rem;
-      text-shadow: 0 1px 0 %23b7b7b7, 
-                   0 2px 0 %23b7b7b7, 
-                   0 3px 0 %23b7b7b7,
-                   0 4px 0 %23b7b7b7, 
-                   0 5px 0 %23b7b7b7,
-                   0 6px 0 transparent, 
-                   0 7px 0 transparent,
-                   0 8px 0 transparent, 
-                   0 9px 0 transparent,
-                   0 10px 10px rgba(0, 0, 0, 0.2);
-      animation: bounce 0.4s ease infinite alternate;
-    }
+  position: relative;
+  top: 20px;
+  color: #6b8e23;
+  display: inline-block;
+  font-size: 3.5rem;
+  text-shadow: 0 1px 0 %23f8f4ee, 
+               0 2px 0 %23f8f4ee, 
+               0 3px 0 %23f8f4ee,
+               0 4px 0 %23f8f4ee, 
+               0 5px 0 %23f8f4ee,
+               0 6px 0 transparent, 
+               0 7px 0 transparent,
+               0 8px 0 transparent, 
+               0 9px 0 transparent,
+               0 10px 10px rgba(0, 0, 0, 0.2);
+  animation: bounce 0.4s ease infinite alternate;
+}
     .welcome-title span:nth-child(1) { animation-delay: 0.1s; color: %23f8f8f8; }
     .welcome-title span:nth-child(2) { animation-delay: 0.2s; color: %23f0f0f0; }
     .welcome-title span:nth-child(3) { animation-delay: 0.3s; color: %23e8e8e8; }
@@ -191,26 +201,27 @@ text-shadow: 0 1px 0 %23ccc,
       z-index: 1;
     }
     .welcome-screen button {
-      padding: 15px 40px;
-      font-size: 1.5rem;
-      background: #6b8e23;
-      color: #f8f4ee;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      animation: fadeIn 1.2s ease 1.1s both;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      font-weight: 500;
-    }
-    .welcome-screen button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-      background: #556b2f;
-    }
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  background: #6b8e23;
+  color: #f8f4ee;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  animation: fadeIn 1.2s ease 1.1s both;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-weight: 500;
+  border: 2px solid #f8f4ee;
+}
+.welcome-screen button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  background: #556b2f;
+}
     .welcome-screen button:active {
       transform: translateY(1px);
     }
